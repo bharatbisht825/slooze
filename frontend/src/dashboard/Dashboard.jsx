@@ -69,7 +69,7 @@ function Dashboard() {
         {/* navbar */}
         <div className="relative h-16 w-full flex justify-end items-center bg-white border-b border-black shadow px-4 space-x-4">
           <div className='relative right-100 text-xl '>Dashboard ({role})</div>
-      <Link to="/" className="border border-black px-4 py-2 rounded-md text-sm hover:bg-gray-100 transition">
+      <Link to="/dashboard" className="border border-black px-4 py-2 rounded-md text-sm hover:bg-gray-100 transition">
         Home
       </Link>
       <Link to="/quee" className="border border-black px-4 py-2 rounded-md text-sm hover:bg-gray-100 transition">

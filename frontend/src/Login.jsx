@@ -22,7 +22,7 @@ function Login() {
       const data = await response.json();
 
       if (response.ok) {
-        navigate("/")
+        navigate("/dashboard")
 
       } else {
         alert(data.message || 'Login failed');
