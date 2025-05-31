@@ -18,26 +18,32 @@
 1. **Nick Fury**  
    - Email: `nickfury@example.com`  
    - Password: `1234`
+   - Admin
 
 2. **Captain Marvel**  
    - Email: `captainmarvel@example.com`  
    - Password: `1234`
+   - Manager
 
 3. **Captain America**  
    - Email: `captainamerica@example.com`  
    - Password: `1234`
+   - Manager
 
 4. **Thanos**  
    - Email: `thanos@example.com`  
    - Password: `1234`
+   - Member
 
 5. **Thor**  
    - Email: `thor@example.com`  
    - Password: `1234`
+   - MEMEBER
 
 6. **Travis**  
    - Email: `travis@example.com`  
    - Password: `1234`
+   - MEMBER
 
 
 
