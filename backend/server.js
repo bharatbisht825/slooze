@@ -10,7 +10,7 @@ const { addCart, removeCart, getCart } = require("./controller/checkout")
 const { submitOrder, submitOrderQuee, getOrders, delOrders } = require("./controller/order")
 const { addToCheckoutQuee, getCheckoutQuee } = require("./controller/quee")
 const authToken = require("./middleware/auth")
-
+const PORT = process.env.PORT || 5000;
 const app=express()
 app.use(express.json())
 app.use(cors({
@@ -25,8 +25,8 @@ app.get("/",(req,res)=>{
     res.send("hey")
 })
 
-app.listen(5000,()=>{
-    console.log("listening on port 5000")
+app.listen(PORT,()=>{
+    console.log(`listening on port ${PORT}`)
 })
 
 app.post("/login",loginUser)
