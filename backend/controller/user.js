@@ -42,7 +42,7 @@ async function loginUser(req,res) {
         try {
             if(userData.password==password){
                 const token=jwt.sign({email:userData.email,role:userData.role,country:userData.country},"bharat",{expiresIn:"5h"})
-                res.cookie("token",token,{httpOnly:true}).status(200).json({"message":"Verified and cookie sent"})
+                res.cookie("token",token,{httpOnly:true,secure: true}).status(200).json({"message":"Verified and cookie sent"})
                 console.log("the sent to token is ",token)
                 console.log("the decodeded token is ",jwt.decode(token))
             }
