@@ -30,6 +30,10 @@ const totalAmount = checkout.reduce((acc, order) => acc + Number(order.qty) * Nu
 const gstAmount = checkout.reduce((acc, order) => acc + (Number(order.qty) * Number(order.price) * 5) / 100, 0).toFixed(2);
 
   async function addToQuee(){
+      if(name=="" || address==""){
+        alert("Please enter address aand name")
+        return
+      }
        const obj= {orderFor:name, cart:checkout, total:totalAmount, address:address }
        const sendToQuee= await fetch("http://localhost:5000/addQuee",{
         method:"POST",
@@ -148,7 +152,14 @@ const gstAmount = checkout.reduce((acc, order) => acc + (Number(order.qty) * Num
             Add to Quee
           </button>
           <button
-            onClick={() => startPayment(true)}
+            onClick={
+              () => {
+                if(name=="" || address==""){
+                  alert("Please enter address aand name")
+                  return
+                }
+                startPayment(true)}
+            }
             disabled={role === "member" || checkout.length==0}
             className={`bg-blue-600 text-white px-6 py-2 rounded ${
               role === "member"

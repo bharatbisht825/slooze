@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 const checkoutQueueSchema = new mongoose.Schema({
-  queeId: { type: String, required: true,unique:true },
+  userCountry:{type:String,required:false},
+  queeId: { type: String, required: false, },
   orderBy: { type: String, required: true }, 
   orderFor: { type: String, required: true },
   cart: { type: Object, required: true },

@@ -5,6 +5,7 @@ const orderSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  country:{type:String,required:false},
   cart: {
     type: Object,
     required: true

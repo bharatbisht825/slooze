@@ -19,7 +19,8 @@ function Dashboard() {
           const restaurantData=await fetch("http://localhost:5000/restaurant",{credentials:"include"})
           const parsed= await restaurantData.json()
           console.log(parsed)
-          setRestaurant(parsed.simplified);setRole(parsed.role)
+          setRestaurant(parsed.simplified);
+          setRole(parsed.role)
 
     }
     getRestaurant()

@@ -11,12 +11,14 @@ const getDishes = async (req, res) => {
     const decoded=jwt.decode(token)
     const rId=req.params.id
 
-    console.log(rId)
+    console.log(rId,decoded.email)
     const dishQtyMap= new Map()
     const restaurants = await Restaurant.findOne({ rId }); // getting all dishes
     const simplified = restaurants.dishes;
+    console.log(simplified)
     const checkoutData= await checkout.findOne({email:decoded.email}) // getting dishes in cart
-    if(checkoutData){
+    console.log("this is checkout data",checkoutData)
+    if(checkoutData && checkout.cart){
         console.log(typeof(checkoutData.cart[rId]))
         if(checkoutData.cart[rId]){
             checkoutData.cart[rId].map((dish,ind)=>dishQtyMap.set(dish.dID,dish.qty))
@@ -32,8 +34,10 @@ const getDishes = async (req, res) => {
             return {rId:rId,dId:dish.dID,name:dish.name,price:dish.price,qty:0}
         }
     })
+    console.log(dishData)
 
     res.status(200).json(dishData);
+
   } catch (error) {
     console.error('Error fetching dishes:', error);
     res.status(500).json({ error: 'Failed to fetch dishes' });

@@ -13,6 +13,7 @@ const submitOrder=async(req,res)=>{
     const checkoutData= await checkout.findOne({email}) 
     if(checkoutData){
         const ordered= await order.create({
+            country:decoded.country,
             clientEmail:to,
             cart:checkoutData.cart,
             paymentMethod,
@@ -42,6 +43,7 @@ const submitOrderQuee=async(req,res)=>{
     const queeData= await checkoutQuee.findOne({queeId}) 
     if(queeData){
         const ordered= await order.create({
+            country:decoded.country,
             clientEmail:queeData.orderFor,
             cart:queeData.cart,
             paymentMethod,
@@ -68,7 +70,7 @@ const getOrders=async(req,res)=>{
     const token=req.cookies.token
     const decoded=jwt.decode(token)
     const role=decoded.role
-    const orderData= await order.find()
+    const orderData= await order.find({country:decoded.country})
     console.log(orderData)
     res.status(200).json({orderData,role})
 

@@ -59,6 +59,8 @@ const Orders = () => {
     >
       <p className="mb-1">
         <strong>Id:</strong> <span className="text-gray-700">{order._id}</span>
+        <strong> Country:</strong> <span className="text-gray-700">{order.country?order.country:"null"}</span>
+
       </p>
       <p className="mb-1">
         <strong>Email:</strong> <span className="text-gray-700">{order.clientEmail}</span>

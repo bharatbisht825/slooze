@@ -13,7 +13,7 @@ const addCart = async (req, res) => {
     const email=decoded.email
     console.log("the user token as following email",email)
     const checkoutData= await checkout.findOne({email}) // getting dishes in cart
-    if(checkoutData){ // if the user has a chekout cart
+    if(checkoutData && checkoutData.cart){ // if the user has a chekout cart
         console.log(typeof(checkoutData.cart[rId]))
         console.log("the user has email in checkout ",checkoutData)
         let foundDish=false
@@ -139,7 +139,8 @@ const getCart= async (req,res)=>{
     const role=decoded.role
     const email=decoded.email
     const checkoutData= await checkout.findOne({email}) // getting dishes in cart
-    if(checkoutData){
+    console.log(checkoutData)
+    if(checkoutData.cart){
         const result = Object.entries(checkoutData.cart).flatMap(([rId, items]) =>
   items.map(item => ({ ...item, rId }))
 );
